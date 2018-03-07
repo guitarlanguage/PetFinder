@@ -14,14 +14,8 @@ var PORT = 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.use(function (req, res) {
-//   res.setHeader('Content-Type', 'text/plain')
-//   res.write('you posted:\n')
-//   res.end(JSON.stringify(req.body, null, 2))
-// })
-
 //requires apiRoutes. api routes needs to be before htmlRoutes
-// require("./routes/apiRoutes.js") (app);
+require("./app/routing/apiRoutes.js") (app);
 //requires htmlRoutes and uses app which is set to express() on line 16
 require("./app/routing/htmlRoutes.js") (app);
 
