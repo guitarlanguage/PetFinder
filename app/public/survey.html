@@ -158,7 +158,7 @@
         <hr>
         <footer class="footer">
             <div class="container">
-                <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a></p>
+                <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/guitarlanguage/friendFinder"target="_blank">GitHub Repo</a></p>
             </div>
         </footer>
 
@@ -212,7 +212,7 @@
         $("#submit").on("click", function(event) {
             event.preventDefault();
 
-            // Form validation
+            // Form validation to make sure all fields have an entry
             function validateForm() {
                 var isValid = true;
                 $(".form-control").each(function() {
@@ -255,7 +255,7 @@
 
                     // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                     $("#match-name").text(data.name);
-                    $("#match-img").attr("src", data.photo);
+                    // $("#match-img").attr("src", data.photo);
 
                     // Show the modal with the best match
                     $("#results-modal").modal("toggle");

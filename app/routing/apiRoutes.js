@@ -17,24 +17,31 @@ module.exports = function(app) {
     });
 
     app.post("/api/friends", function (req, res) {
+        //logic goes here---------->
 
-        if (tableData.length < 5) {
-            tableData.push(req.body);
-            res.json(true);
-        } else {
-            waitListData.push(req.body);
-            res.json(false);
-        }
+        // siteFriends.push(req.body);
+        siteFriends.push({
+            "name": "",
+            "photo": "",
+            "scores": []
+        });
+        console.log(siteFriends);
 
-    });
-
-    app.post("/api/clear", function () {
-        tableData = [];
-        waitlistData = [];
-
-        console.log(tableData);
-        console.log(waitListData);
+        //     res.json(true);
+        // } else {
+        //     waitListData.push(req.body);
+        //     res.json(false);
+        // }
 
     });
+
+    // app.post("/api/clear", function () {
+    //     tableData = [];
+    //     waitlistData = [];
+    //
+    //     console.log(tableData);
+    //     console.log(waitListData);
+    //
+    // });
 
 };

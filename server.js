@@ -13,7 +13,8 @@ var PORT = 3000;
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+//use static method to give all parts of applcation access to img or css
+app.use(express.static('app/public'));
 //requires apiRoutes. api routes needs to be before htmlRoutes
 require("./app/routing/apiRoutes.js") (app);
 //requires htmlRoutes and uses app which is set to express() on line 16
