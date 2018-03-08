@@ -13,24 +13,41 @@ module.exports = function(app) {
 
     app.post("/api/friends", function (req, res) {
         //logic goes here---------->
-        console.log(req.body);
+        // console.log(req.body);
+        var membersScores = 0;
         var totalScore = 0;
         var userBio = req.body;
         var userScore = userBio['scores[]'];
         // console.log(userScore);
         siteFriends.push(userBio);
 
+        console.log(siteFriends);
+
+
+
         userScore.forEach(function(elem, i) {
             totalScore += Math.abs(elem);
 
         });
 
-        console.log(`${req.body.name}'s total score: ...${totalScore}`);
+        // siteFriends.forEach(function(element, j) {
+        //     // membersScores += Math.abs(element.res.json);
+        //     console.log(element.scores[j]);
+        // })
+
+        // console.log(`${req.body.name}'s total score: ...${totalScore}`);
+
+
+        // console.log(membersScores);
         // console.log(sightFriends);
         // siteFriends.forEach(function(elem, i) {
         //     console.log(`sightFriends: ${elem};`);
         //
         // })
+
+        // function findAMatch() {
+        //     if (totalScore )
+        // };
 
     });
 
