@@ -18,30 +18,17 @@ module.exports = function(app) {
 
     app.post("/api/friends", function (req, res) {
         //logic goes here---------->
+        // console.log(req);
+        var totalScore = 0;
+        var userBio = req.body;
+        var userScore = userBio['scores[]'];
+        // console.log(userScore);
+        siteFriends.push(userBio);
 
-        // siteFriends.push(req.body);
-        siteFriends.push({
-            "name": "",
-            "photo": "",
-            "scores": []
-        });
-        console.log(siteFriends);
-
-        //     res.json(true);
-        // } else {
-        //     waitListData.push(req.body);
-        //     res.json(false);
-        // }
+        userScore.forEach(function(elem, i) {
+            console.log(`here I am: ${elem}`);
+        })
 
     });
-
-    // app.post("/api/clear", function () {
-    //     tableData = [];
-    //     waitlistData = [];
-    //
-    //     console.log(tableData);
-    //     console.log(waitListData);
-    //
-    // });
 
 };
