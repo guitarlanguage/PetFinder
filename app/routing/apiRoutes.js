@@ -13,7 +13,7 @@ module.exports = function(app) {
 
     app.post("/api/friends", function (req, res) {
         //logic goes here---------->
-        console.log(req);
+        console.log(req.body);
         var totalScore = 0;
         var userBio = req.body;
         var userScore = userBio['scores[]'];
@@ -22,13 +22,10 @@ module.exports = function(app) {
 
         userScore.forEach(function(elem, i) {
             totalScore += Math.abs(elem);
-            console.log(`
-
-                here I am: ${Math.abs(elem)};`);
 
         });
 
-        console.log(parseInt(totalScore));
+        console.log(`${req.body.name}'s total score: ...${totalScore}`);
         // console.log(sightFriends);
         // siteFriends.forEach(function(elem, i) {
         //     console.log(`sightFriends: ${elem};`);
