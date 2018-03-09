@@ -53,17 +53,17 @@ module.exports = function(app) {
                 console.log(`--------`);
 
                 userScore.forEach(function(item, k) {
-
-                    console.log(`item: ${item} - list: ${list}: ${item - list} | with a k index of ${k}`);
+                    var doMath = Math.abs(parseInt(item - list));
+                    console.log(`${element.name}'s (item): ${item} - (list): ${list}: ${doMath} | with a k index of ${k}`);
                     console.log(`k index on second loop: ${k} and element.scores: ${element.scores}`);
                     console.log(`___________________`)
-                    totalScore += Math.abs(parseInt(element.scores));
+                    totalScore += Math.abs(parseInt(item - list));
                     
                 })
             })
 
             
-            // console.log(`totalScore: ${totalScore}`)
+            console.log(`totalScore: ${totalScore}`)
 
             // membersScores += Math.abs(element.scores);
         })
