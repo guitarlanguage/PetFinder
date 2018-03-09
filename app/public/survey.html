@@ -221,7 +221,7 @@
                         isValid = false;
                     }
                 });
-
+                //jquery loop through all .chosen-select class items
                 $(".chosen-select").each(function() {
 
                     if ($(this).val() === "") {
@@ -251,12 +251,18 @@
                     ]
                 };
 
-                console.log(userData);
+                // console.log(userData);
 
-                var currentUrl = window.location.origin;
-
+                var currentURL = window.location.origin;
                 // AJAX post the data to the friends API.
-                $.post("/api/friends", userData, function(data) {
+                $.ajax({
+
+                    url: currentURL + "/api/friends",
+                    method: "POST",
+                    data: userData,
+                    traditional: true
+
+                }).then(function(data) {
 
                     // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                     $("#match-name").text(data.name);
@@ -264,12 +270,15 @@
 
                     // Show the modal with the best match
                     $("#results-modal").modal("toggle");
+            });
 
-                });
             } else {
                 alert("Please fill out all fields before submitting!");
             }
         });
+
+        // function sendIt () {
+
     </script>
 
 </body>
