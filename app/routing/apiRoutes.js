@@ -21,7 +21,7 @@ module.exports = function(app) {
     app.post("/api/friends", function (req, res) {
         //logic goes here---------->
         // console.log(res.body);
-        var totalScore = 0;
+       
         var userBio = req.body;
         var userScore = userBio.scores;
         
@@ -29,9 +29,12 @@ module.exports = function(app) {
         console.log(`userScore outside of loop: ${userScore}`);
 
         siteFriends.forEach(function(element, j) {
+
+            var totalScore = 0;
             var difference = 0;
             console.log(`inside ${element.name}'s loop ******${j}*******`);
             console.log(`element.name: ${element.name}: element.scores:${element.scores} with a j index of ${j}`);
+            console.log(`******************************************`);
             // var scoreHolder = element[j].scores;
             // totalScore += Math.abs(siteFriends[j].scores);
             //targeting each score sheet
@@ -40,14 +43,15 @@ module.exports = function(app) {
             
             element.scores.forEach(function(list, l) {
                 
-                console.log(`==${list} ==== at ${l} index`);
-                console.log(`orbit userScore: ${userScore[l]}`);
+                var difference = userScore[l] - list;
+                // console.log(`==${list} ==== at ${l} index`);
+                // console.log(`orbit userScore: ${userScore[l]}`);
                 console.log(`orbit userScore[l]: ${userScore[l]} - ${list} (list): ${userScore[l] - list}`);
-                totalScore += totalScore + userScore[l] - list;
+                totalScore += difference;
                 console.log(`-------------`);
-
+                console.log(totalScore);
             })
-            console.log(totalScore);
+            
                 // userScore.forEach(function(item, k) {
 
 
@@ -71,35 +75,10 @@ module.exports = function(app) {
             
             console.log(`totalScore: ${totalScore}`);
 
-            // membersScores += Math.abs(element.scores);
         });
-        // console.log(totalScore);
-        // console.log(membersScores);
-        // siteFriends.scores.forEach(function(element, j) {
-        //     // membersScores += Math.abs(element.res.json);
-        //
-        //
-        // })
-        // console.log(`${siteFriends.name} score is: ${membersScores}`);
-    //     userScore.forEach(function(elem, i) {
-    //         totalScore += Math.abs(elem);
-    //         console.log(`scores: ${elem} and index: ${i}`);
-    //
-    //     });
-    // //
-    // console.log(`${req.body.name}'s total score: ...${totalScore}`);
 
 
 
-
-
-
-        // console.log(membersScores);
-        // console.log(sightFriends);
-        // siteFriends.forEach(function(elem, i) {
-        //     console.log(`sightFriends: ${elem};`);
-        //
-        // })
 
         // function findAMatch() {
         //     if (totalScore )
