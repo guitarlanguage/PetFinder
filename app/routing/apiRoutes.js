@@ -27,15 +27,18 @@ module.exports = function(app) {
 
         userScore.forEach(function(elem, i) {
             totalScore += Math.abs(elem);
+            console.log(`scores: ${elem} and index: ${i}`);
 
         });
+
+    console.log(`${req.body.name}'s total score: ...${totalScore}`);
 
         // siteFriends.forEach(function(element, j) {
         //     // membersScores += Math.abs(element.res.json);
         //     console.log(element.scores[j]);
         // })
 
-        // console.log(`${req.body.name}'s total score: ...${totalScore}`);
+
 
 
         // console.log(membersScores);
