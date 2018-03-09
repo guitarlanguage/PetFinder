@@ -21,7 +21,7 @@ module.exports = function(app) {
         // var memberScores = siteFriends.scores;
         // console.log(userScore);
         siteFriends.push(userBio);
-
+        //testing trying to grab somebody
         console.log(siteFriends[0].scores);
         // console.log(`___________`);
         // console.log(userScore);
@@ -29,13 +29,14 @@ module.exports = function(app) {
         siteFriends.forEach(function(element, j) {
             // membersScores += Math.abs(element.res.json);
             console.log(`${element.name}: ${element.scores} with an index of ${j}`);
+            // var scoreHolder = element[j].scores;
             // totalScore += Math.abs(siteFriends[j].scores);
             //targeting each score sheet
             // console.log(siteFriends[j].scores);
 
             siteFriends[j].scores.forEach(function(item, k) {
-                item
-                console.log(item);
+
+                console.log(`${item} with an index of ${k}`);
             })
             // console.log(element.scores);
 
