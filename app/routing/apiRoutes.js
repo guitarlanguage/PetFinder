@@ -1,5 +1,6 @@
 // var path = require('path');
 var siteFriends = require ("../data/friends.js");
+// var fs = require('fs');
 
 //    * A POST routes `/api/friends`. This will be used to handle
 //  incoming survey results. This route will also be used to handle
@@ -9,6 +10,16 @@ module.exports = function(app) {
     //app represents express
     app.get("/api/friends", function (req, res) {
         res.json(siteFriends);
+        // thinking about doing a fs file 
+        // fs.readFile("/../data/friends.js", "utf8", function(err, data) {
+		// 	if (err) {
+		// 		return console.log(err);
+		// 	}
+        //
+		// 	else {
+		// 		res.json(JSON.parse(data));
+		// 	}
+		// });
     });
 
     app.post("/api/friends", function (req, res) {
@@ -17,28 +28,42 @@ module.exports = function(app) {
         // console.log(res.body);
         var totalScore = 0;
         var userBio = req.body;
-        // var userScore = userBio.scores;
+        var userScore = userBio.scores;
         // var memberScores = siteFriends.scores;
-        // console.log(userScore);
+        
         siteFriends.push(userBio);
+       
         //testing trying to grab somebody
-        console.log(siteFriends[0].scores);
+        // console.log(siteFriends[0].scores);
         // console.log(`___________`);
-        // console.log(userScore);
+        console.log(`userScore: ${userScore}`);
 
         siteFriends.forEach(function(element, j) {
-            // membersScores += Math.abs(element.res.json);
-            console.log(`${element.name}: ${element.scores} with an index of ${j}`);
+            var difference = 0;
+            // console.log(element);
+            console.log(`element.name: ${element.name}: element.scores:${element.scores} with a j index of ${j}`);
             // var scoreHolder = element[j].scores;
             // totalScore += Math.abs(siteFriends[j].scores);
             //targeting each score sheet
             // console.log(siteFriends[j].scores);
+            // siteFriends[j].scores.forEach
+            element.scores.forEach(function(list, l) {
+                console.log(`--------`);
+                console.log(list);
+                console.log(`--------`);
 
-            siteFriends[j].scores.forEach(function(item, k) {
+                userScore.forEach(function(item, k) {
 
-                console.log(`${item} with an index of ${k}`);
+                    console.log(`item: ${item} - list: ${list}: ${item - list} | with a k index of ${k}`);
+                    console.log(`k index on second loop: ${k} and element.scores: ${element.scores}`);
+                    console.log(`___________________`)
+                    totalScore += Math.abs(parseInt(element.scores));
+                    
+                })
             })
-            // console.log(element.scores);
+
+            
+            // console.log(`totalScore: ${totalScore}`)
 
             // membersScores += Math.abs(element.scores);
         })
