@@ -21,22 +21,22 @@ module.exports = function(app) {
         // console.log(userScore);
         siteFriends.push(userBio);
 
-        console.log(siteFriends);
+        // console.log(siteFriends);
+
+        siteFriends.forEach(function(element, j) {
+            // membersScores += Math.abs(element.res.json);
+            console.log(`${element.name}: ${element.scores}`);
+        })
+
+        // userScore.forEach(function(elem, i) {
+        //     totalScore += Math.abs(elem);
+        //     console.log(`scores: ${elem} and index: ${i}`);
+        //
+        // });
+
+    // console.log(`${req.body.name}'s total score: ...${totalScore}`);
 
 
-
-        userScore.forEach(function(elem, i) {
-            totalScore += Math.abs(elem);
-            console.log(`scores: ${elem} and index: ${i}`);
-
-        });
-
-    console.log(`${req.body.name}'s total score: ...${totalScore}`);
-
-        // siteFriends.forEach(function(element, j) {
-        //     // membersScores += Math.abs(element.res.json);
-        //     console.log(element.scores[j]);
-        // })
 
 
 
