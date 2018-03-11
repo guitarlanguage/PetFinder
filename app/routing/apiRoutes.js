@@ -46,6 +46,7 @@ module.exports = function(app) {
                 var difference = Math.abs(userScore[l] - list);
                 console.log(`orbit userScore[l]: ${userScore[l]} - ${list} (list): ${userScore[l] - list}`);
                 totalScore += difference;
+                
                 // console.log(`-------------`);
                 // console.log(`compatibility score (lower number is better): ${totalScore}`);
             })
@@ -57,12 +58,9 @@ module.exports = function(app) {
             } else {
                 console.log(`no friends for you`);
             };
-            
-            
-
         });
-
-
+        
+        
 
     });
 
