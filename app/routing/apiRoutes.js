@@ -34,9 +34,6 @@ module.exports = function(app) {
             friendDiff: 10000000
         }
 
-        // function findAMatch() {
-            
-        // };
 
         siteFriends.forEach(function(element, j) {
 
@@ -61,7 +58,7 @@ module.exports = function(app) {
             if (totalScore < bestMatch.friendDiff) {
                 console.log(`say hello to your new friend ${element.name} ${element.photo}`);
                 bestMatch.name = element.name;
-                bestMatch.photo = element.photos;
+                bestMatch.photo = element.photo;
                 bestMatch.friendDiff = totalScore;
                 console.log(`best Match name: ${bestMatch.name}`);
                 console.log(`best Match difference: ${bestMatch.friendDiff}`);
