@@ -25,8 +25,14 @@ module.exports = function(app) {
         var userBio = req.body;
         var userScore = userBio.scores;
         
-        siteFriends.push(userBio);
+        
         console.log(`userScore outside of loop: ${userScore}`);
+
+        var bestMatch = {
+            name: "",
+            photo: "",
+            friendDiff: 10000000
+        }
 
         // function findAMatch() {
             
@@ -43,7 +49,7 @@ module.exports = function(app) {
             //looping within the siteFriends Loop--------------------
             element.scores.forEach(function(list, l) {
                 //caching variable to get absolute value diffence
-                var difference = Math.abs(userScore[l] - list);
+               difference = Math.abs(userScore[l] - list);
                 console.log(`orbit userScore[l]: ${userScore[l]} - ${list} (list): ${userScore[l] - list}`);
                 totalScore += difference;
                 
@@ -52,15 +58,23 @@ module.exports = function(app) {
             })
             console.log(`totalScore (lower number is better): ${totalScore}`);
             
-            if (totalScore <= 20) {
+            if (totalScore < bestMatch.friendDiff) {
                 console.log(`say hello to your new friend ${element.name} ${element.photo}`);
+                bestMatch.name = element.name;
+                bestMatch.photo = element.photos;
+                bestMatch.friendDiff = totalScore;
+                console.log(`best Match name: ${bestMatch.name}`);
+                console.log(`best Match difference: ${bestMatch.friendDiff}`);
                 
-            } else {
-                console.log(`no friends for you`);
-            };
+            }
+            //     console.log(`no friends for you`);
+            // };
+
         });
-        
-        
+        //had to after all the logic was performed
+        siteFriends.push(userBio);
+        //res responds to the fronte end wit hteh besMatch object
+        res.json(bestMatch);
 
     });
 
